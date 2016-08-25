@@ -37,6 +37,14 @@ class Admin_icbbogor extends CI_Controller {
 		}else
 			$this->load->view('login');
 	}
+	public function abstract_ad(){
+		if($this->session->userdata('status') == 1){
+			$data['content_view']='abstract';
+			$data['abstract'] = $this->Speaker_m->lihatabs();
+			$this->load->view('layout_admin',$data);
+		}else
+			$this->load->view('login');
+	}
 	public function payment($x = ""){
 		if($this->session->userdata('status') == 1){
 			if($x){
@@ -111,6 +119,29 @@ class Admin_icbbogor extends CI_Controller {
 			$this->Rundown_m->setEvent($this->input->post('activity'));
 			$this->Rundown_m->edit();
 			redirect(site_url('admin_icbbogor/rundown/'.$this->input->post('r')));
+		}else
+			$this->load->view('login');
+	}
+	public function tambah(){
+		if($this->session->userdata('status') == 1){
+			$this->Rundown_m->setDate($this->input->post('tgl'));
+			$stmie = $this->input->post('stime');
+			$stime1 = $this->input->post('stime1');
+			$etime = $this->input->post('etime');
+			$etime1 = $this->input->post('etime1');
+			if($stime <= 9) $stime = '0'.$stime;
+			if($stime1 <= 9) $stime1 = '0'.$stime1;
+			if($etime <= 9) $etime = '0'.$etime;
+			if($etime1 <= 9) $etime1 = '0'.$etime1;
+			$this->Rundown_m->setSTime($stime.":".$stime1.":00");
+			$this->Rundown_m->setETime($etime.":".$etime1.":00");
+			$this->Rundown_m->setEvent($this->input->post('activity'));
+			$this->Rundown_m->add();
+			if($this->input->post('tgl') == '2016-10-10')
+				$r = 1;
+			else
+				$r = 2;
+			redirect(site_url('admin_icbbogor/rundown/'.$r));
 		}else
 			$this->load->view('login');
 	}

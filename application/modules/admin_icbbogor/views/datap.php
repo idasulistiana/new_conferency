@@ -21,6 +21,7 @@
                       <th>Bank</th>
                       <th>Account Name</th>
                       <th>Account Number</th>
+                      <th>ID Paper</th>
                       <th>Message</th>
                     </tr>
                   </thead>
@@ -44,7 +45,7 @@
                             break;
                         }
                         echo substr($data->tgl, 8, 2)."<sup>".$x."</sup>";
-                        echo ", ".substr($data->tgl, 0, 4) ?></td>
+                        echo ",".substr($data->tgl, 0, 4) ?></td>
                         <td><?php echo ($data->id_status == 1) ? 'Participant' : 'Presenter'; ?></td>
                         <td><?php echo $data->fname." ".$data->lname ?></td>
                         <td><?php echo $data->company ?></td>
@@ -53,6 +54,7 @@
                         <td><?php echo $data->bank ?></td>
                         <td><?php echo $data->a_name ?></td>
                         <td><?php echo $data->a_number ?></td>
+                        <td align="center"><?php echo ($data->paper_id) ? $data->paper_id : "-" ?></td>
                         <td><?php echo $data->message ?></td>
                       </tr>
                     <?php } ?>

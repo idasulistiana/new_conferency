@@ -21,6 +21,9 @@
     }else if ($content_view == 'payment1'){
       $data['payment'] = $presenter;
       $this->load->view('datap', $data);
+    }else if ($content_view == 'abstract'){
+      $data['abstract'] = $abstract;
+      $this->load->view('abstract', $data);
     }else if ($content_view == 'rundown1'){
 			$data['rundown1'] = $rundown1;
 			$this->load->view('rundown', $data);
@@ -37,7 +40,27 @@
     <script type="text/javascript">
     $(document).ready(function () {
       <?php if($content_view != 'rundown1' && $content_view != 'rundown2'){ ?>
-      $('.table').dataTable();
+      $('.table').dataTable(
+        <?php if($content_view == 'abstract'){ ?>
+        {
+              "aoColumnDefs": [
+                { "bSortable": false, "aTargets": [2,3] }],
+                "aaSorting": [[ 0, "asc" ]]
+            }
+        <?php } else if($content_view == 'participant' || $content_view == 'presenter'){ ?>
+        {
+              "aoColumnDefs": [
+                { "bSortable": false, "aTargets": [8] }],
+                "aaSorting": [[ 0, "asc" ]]
+            }
+        <?php } else if($content_view == 'padmin'){ ?>
+        {
+              "aoColumnDefs": [
+                { "bSortable": false, "aTargets": [11] }],
+                "aaSorting": [[ 0, "asc" ]]
+            }
+        <?php } ?>
+      );
       <?php } ?>
     });    
     function confirm(x, y,z){

@@ -29,6 +29,9 @@
               <li><a href="<?php echo site_url('admin_icbbogor/payment/data') ?>">Data</a></li>
             </ul>
           </li>
+          <li <?php if ($this->uri->segment(2) == 'abstract'): ?>
+            class="active"
+          <?php endif ?>><a href="<?php echo site_url('admin_icbbogor/abstract_ad') ?>"><i class="glyphicon glyphicon-file"></i>Abstracts</a></li>
           <li class="<?php if ($this->uri->segment(2) == 'rundown'): ?>
                 active open
               <?php endif ?> sub ">

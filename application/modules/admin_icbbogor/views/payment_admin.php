@@ -21,6 +21,7 @@
                       <th>Bank</th>
                       <th>Account Name</th>
                       <th>Account Number</th>
+                      <th>ID Paper</th>
                       <th>Message</th>
                       <th>Confirm</th>
                     </tr>
@@ -54,6 +55,7 @@
                         <td><?php echo $data->bank ?></td>
                         <td><?php echo $data->a_name ?></td>
                         <td><?php echo $data->a_number ?></td>
+                        <td><?php echo $data->paper_id ?></td>
                         <td><?php echo $data->message ?></td>
                         <td><button class="btn btn-danger" onclick="confirm(<?php echo $data->id_status.",".$data->id.",". $data->id_regis ?>)" data-toggle="modal" data-target="#conf">Confirm</button></td>
                       </tr>

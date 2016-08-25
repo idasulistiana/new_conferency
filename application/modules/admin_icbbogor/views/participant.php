@@ -25,14 +25,14 @@
                   <tbody>
                     <?php foreach ($presenter as $data) { ?>
                       <tr>
-                        <td><?php echo $data->title." ".$data->fname." ".$data->lname ?></td>
-                        <td><?php echo $data->company ?></td>
-                        <td><?php echo $data->city ?></td>
-                        <td><?php echo $data->state ?></td>
-                        <td><?php echo $data->country ?></td>
-                        <td><?php echo $data->email ?></td>
-                        <td><?php echo $data->phone ?></td>
-                        <td><?php echo $data->address ?></td>
+                        <td><?php echo ($data->status == 1) ? "" : "<b>"; echo $data->title." ".$data->fname." ".$data->lname; echo ($data->status == 1) ? "" : "</b>";  ?></td>
+                        <td><?php echo ($data->status == 1) ? "" : "<b>"; echo $data->company; echo ($data->status == 1) ? "" : "</b>"; ?></td>
+                        <td><?php echo ($data->status == 1) ? "" : "<b>"; echo $data->city; echo ($data->status == 1) ? "" : "</b>"; ?></td>
+                        <td><?php echo ($data->status == 1) ? "" : "<b>"; echo $data->state; echo ($data->status == 1) ? "" : "</b>"; ?></td>
+                        <td><?php echo ($data->status == 1) ? "" : "<b>"; echo $data->country; echo ($data->status == 1) ? "" : "</b>"; ?></td>
+                        <td><?php echo ($data->status == 1) ? "" : "<b>"; echo $data->email; echo ($data->status == 1) ? "" : "</b>"; ?></td>
+                        <td><?php echo ($data->status == 1) ? "" : "<b>"; echo $data->phone; echo ($data->status == 1) ? "" : "</b>"; ?></td>
+                        <td><?php echo ($data->status == 1) ? "" : "<b>"; echo $data->address; echo ($data->status == 1) ? "" : "</b>"; ?></td>
                         <td><?php echo ($data->status == 1) ? '<span class="btn-primary" style="padding:3px">Done</span>' : '<span class="btn-danger" style="padding:3px">Pending</span>'; ?></td>
                       </tr>
                     <?php } ?>

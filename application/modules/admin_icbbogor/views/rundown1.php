@@ -10,6 +10,8 @@
           <div class="row">            
               <div class="table-responsive">
                 <h3>Day-2:  Tuesday, October 11<sup>th</sup>, 2016</h3>
+                <div class="pull-right"><button class="btn btn-primary" data-target="#add" data-toggle="modal"><i class="glyphicon glyphicon-plus"></i> Add</button></div>
+                <div class="clearfix"></div><br>
                 <table class="table table-striped table-hover table-bordered">
                   <thead>
                     <tr>
@@ -67,6 +69,44 @@
                       <textarea name="activity" id="activity" class="form-control" style="height: 115px;"></textarea>
                       <input type="hidden" name="id" id="id">
                       <input type="hidden" name="r" id="r" value="2">
+                    </div><!-- 
+                    <div class="form-group">
+                      <label>Presenter</label>
+                      <div id="pres"></div>
+                    </div> -->
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-info">Save</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="add" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Tutup"><span aria-hidden="true">&times;</span></button>
+                    <label><h4 class="modal-title" id="myModalLabel">Rundown</font></h4></label>
+                </div>
+                <form id="frm" method="POST" action="<?php echo site_url('admin_icbbogor/tambah') ?>">
+                <div class="modal-body">
+                    <div class="form-group">
+                      <label>Time</label>
+                      <input type="hidden" name="tgl" value="2016-10-11"><br>
+                      <input type="number" name="stime" min="0" max="23" value="00" class="fc">
+                      <label> : </label>
+                      <input type="number" name="stime1" min="0" max="59" value="00" class="fc">
+                      <label>&emsp;-&emsp;</label>
+                      <input type="number" name="etime" min="0" max="23" value="00" class="fc">
+                      <label> : </label>
+                      <input type="number" name="etime1" min="0" max="59" value="00" class="fc">
+                    </div>
+                    <div class="form-group">
+                      <label>Activity</label>
+                      <textarea name="activity" id="activity" class="form-control" style="height: 115px;"></textarea>
+                      <input type="hidden" name="id" id="id">
+                      <input type="hidden" name="r" id="r" value="1">
                     </div><!-- 
                     <div class="form-group">
                       <label>Presenter</label>
