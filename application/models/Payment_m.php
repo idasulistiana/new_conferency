@@ -12,6 +12,8 @@
 		private $message;
 		private $id_status;
 		private $id_regis;
+		private $satuan;
+		private $paper;
 
 		public function setId($val){ $this->id = $val; }
 		public function setFName($val){ $this->fname = $val; }
@@ -25,6 +27,8 @@
 		public function setMessage($val){ $this->message = $val; }
 		public function setIdStatus($val){ $this->id_status = $val; }
 		public function setIdRegis($val){ $this->id_regis = $val; }
+		public function setSatuan($val){ $this->satuan = $val; }
+		public function setPaper($val){ $this->paper = $val; }
 
 		public function getId(){ return $this->id; }
 		public function getFName(){ return $this->fname; }
@@ -38,11 +42,14 @@
 		public function getMessage(){ return $this->message; }
 		public function getIdStatus(){ return $this->id_status; }
 		public function getIdRegis(){ return $this->id_regis; }
+		public function getSatuan(){ return $this->satuan; }
+		public function getPaper(){ return $this->paper; }
 
 		public function tambah(){
 			$data = array(
 				'fname' => $this->getFName(),
 				'lname' => $this->getLName(),
+				'satuan' => $this->getSatuan(),
 				'company' => $this->getCompany(),
 				'email' => $this->getEmail(),
 				'jml' => $this->getJml(),
@@ -51,6 +58,7 @@
 				'a_number' => $this->getANumber(),
 				'message' => $this->getMessage(),
 				'id_status' => $this->getIdStatus(),
+				'paper_id' => $this->getPaper(),
 				'id_regis' => $this->getIdRegis()
 			);
 			return $this->db->insert('tbl_pembayaran', $data);

@@ -125,5 +125,9 @@
 			$this->db->select('count(*) as jml')->from($x)->where('status',2);
 			return $this->db->get()->row()->jml;	
 		}
+		public function lihatabs(){
+			$this->db->select('*')->from('tbl_speaker')->where('abstract_file', NULL);
+			return $this->db->get()->result();
+		}
 	}
 ?>
